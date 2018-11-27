@@ -23,7 +23,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "LambdaAndTest/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n\n    ddb.put({\n        TableName: 'LambdaAndDDB',\n        Item: { 'pKey': 1, 'pName': 'test' }\n    }).promise().then(function (data) {\n        //your logic goes here\n    }).catch(function (err) {\n        //handle error\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let AWS = require('aws-sdk');\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n\n    ddb.put({\n        TableName: 'LambdaAndDDB',\n        Item: {\n            'pKey': 1,\n            'pName': 'test',\n            'pVersion': 1\n        }\n    }).promise().then(function (data) {\n        //your logic goes here\n    }).catch(function (err) {\n        //handle error\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "triggers": [],
         "config": {
           "runtime": "nodejs8.10",
@@ -55,7 +55,7 @@
       "88d667c7-617b-4bdd-82a9-4aeffa4e8a63",
       "92e96eb5-8265-4878-8bc5-30ac12eea545"
     ],
-    "currentFileId": "92e96eb5-8265-4878-8bc5-30ac12eea545",
+    "currentFileId": "88d667c7-617b-4bdd-82a9-4aeffa4e8a63",
     "resources": {
       "ddbLambdaAndDDB": {
         "name": "ddbLambdaAndDDB",
@@ -74,12 +74,12 @@
             "mode": 0
           },
           "parameters": {
-            "Key": {},
+            "TableName": "LambdaAndDDB",
             "Item": {
               "pKey": 1,
-              "pName": "test"
-            },
-            "ExpressionAttributeValues": {}
+              "pName": "test",
+              "pVersion": 1
+            }
           },
           "validator": {
             "validatableFields": {},
@@ -111,7 +111,7 @@
     "projectVersion": "1.0.0",
     "projectRegion": "us-east-1",
     "platform": "AWS",
-    "lastSave": 1543315093766,
+    "lastSave": 1543315318721,
     "platformRegions": {}
   },
   "VCS_STATE": {
