@@ -1,0 +1,105 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "31081c74-4a28-41bd-9f9d-da1a060cdc03": {
+        "id": "31081c74-4a28-41bd-9f9d-da1a060cdc03",
+        "parent": null,
+        "name": "LambdaAndTest",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "88d667c7-617b-4bdd-82a9-4aeffa4e8a63"
+        ],
+        "isRemovable": false,
+        "filePath": "LambdaAndTest"
+      },
+      "88d667c7-617b-4bdd-82a9-4aeffa4e8a63": {
+        "id": "88d667c7-617b-4bdd-82a9-4aeffa4e8a63",
+        "parent": "31081c74-4a28-41bd-9f9d-da1a060cdc03",
+        "name": "lambda.js",
+        "type": "LAMBDA_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "LambdaAndTest/lambda.js",
+        "code": "let AWS = require('aws-sdk');\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n\n    ddb.put({\n        TableName: 'LambdaAndDDB',\n        Item: { 'pKey': 1, 'pName': 'test' }\n    }).promise().then(function (data) {\n        //your logic goes here\n    }).catch(function (err) {\n        //handle error\n    });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "triggers": [],
+        "config": {
+          "runtime": "nodejs8.10",
+          "timeout": 60,
+          "memory": 128
+        }
+      }
+    },
+    "deletedFiles": [],
+    "rootNode": "31081c74-4a28-41bd-9f9d-da1a060cdc03",
+    "openFiles": [
+      "88d667c7-617b-4bdd-82a9-4aeffa4e8a63"
+    ],
+    "currentFileId": "88d667c7-617b-4bdd-82a9-4aeffa4e8a63",
+    "resources": {
+      "ddbLambdaAndDDB": {
+        "name": "ddbLambdaAndDDB",
+        "type": "DynamoDB",
+        "config": {
+          "mode": 0,
+          "operation": "put",
+          "table": {
+            "arn": "",
+            "name": "LambdaAndDDB",
+            "partitionKey": "pKey",
+            "partitionKeyType": "S",
+            "hasSortKey": false,
+            "sortKey": "",
+            "sortKeyType": "S",
+            "mode": 0
+          },
+          "parameters": {
+            "Key": {},
+            "Item": {
+              "pKey": 1,
+              "pName": "test"
+            },
+            "ExpressionAttributeValues": {}
+          },
+          "validator": {
+            "validatableFields": {},
+            "validity": true
+          },
+          "valid": true
+        },
+        "globallyEditable": false
+      }
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {}
+    },
+    "lambdaId": "88d667c7-617b-4bdd-82a9-4aeffa4e8a63"
+  },
+  "PROJECT_META": {
+    "projectName": "LambdaAndTest",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "lastSave": 1543314929330,
+    "platformRegions": {}
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "LambdaAndTest",
+      "url": "https://github.com/sigmaidetest/LambdaAndTest"
+    }
+  }
+}
