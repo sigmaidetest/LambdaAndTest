@@ -8,7 +8,8 @@
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "88d667c7-617b-4bdd-82a9-4aeffa4e8a63"
+          "88d667c7-617b-4bdd-82a9-4aeffa4e8a63",
+          "92e96eb5-8265-4878-8bc5-30ac12eea545"
         ],
         "isRemovable": false,
         "filePath": "LambdaAndTest"
@@ -29,14 +30,32 @@
           "timeout": 60,
           "memory": 128
         }
+      },
+      "92e96eb5-8265-4878-8bc5-30ac12eea545": {
+        "id": "92e96eb5-8265-4878-8bc5-30ac12eea545",
+        "parent": "31081c74-4a28-41bd-9f9d-da1a060cdc03",
+        "name": "crooked&Lambda.js",
+        "type": "LAMBDA_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "LambdaAndTest/crooked&Lambda.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "triggers": [],
+        "config": {
+          "runtime": "nodejs8.10",
+          "timeout": 60,
+          "memory": 128
+        }
       }
     },
     "deletedFiles": [],
     "rootNode": "31081c74-4a28-41bd-9f9d-da1a060cdc03",
     "openFiles": [
-      "88d667c7-617b-4bdd-82a9-4aeffa4e8a63"
+      "88d667c7-617b-4bdd-82a9-4aeffa4e8a63",
+      "92e96eb5-8265-4878-8bc5-30ac12eea545"
     ],
-    "currentFileId": "88d667c7-617b-4bdd-82a9-4aeffa4e8a63",
+    "currentFileId": "92e96eb5-8265-4878-8bc5-30ac12eea545",
     "resources": {
       "ddbLambdaAndDDB": {
         "name": "ddbLambdaAndDDB",
@@ -92,7 +111,7 @@
     "projectVersion": "1.0.0",
     "projectRegion": "us-east-1",
     "platform": "AWS",
-    "lastSave": 1543314929330,
+    "lastSave": 1543315093766,
     "platformRegions": {}
   },
   "VCS_STATE": {
